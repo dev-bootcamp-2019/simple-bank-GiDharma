@@ -5,6 +5,8 @@ using Truffle version 5.0. You can check this by running "trufffle version"  in 
 installed, you can uninstall the existing version with `npm uninstall -g truffle` and install the latest version (5.0)
 with `npm install -g truffle`.
 
+
+Added another test as part of testing the automatic getter creation for public state variables.
 */
 
 var SimpleBank = artifacts.require("./SimpleBank.sol");
