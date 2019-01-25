@@ -28,6 +28,13 @@ contract('SimpleBank', function(accounts) {
     assert.equal(ownerEnrolled, false, 'only enrolled users should be marked enrolled');
   });
 
+  it("should let everyone check if address is enrolled", async () => {
+    const bank = await SimpleBank.deployed();
+    await bank.enroll({from: alice});
+    const aliceEnrolled = await bank.enrolled(alice, {from: bob});
+    assert.equal(aliceEnrolled, true, 'enroll user check by another user');
+  });
+
   it("should deposit correct amount", async () => {
     const bank = await SimpleBank.deployed();
 
